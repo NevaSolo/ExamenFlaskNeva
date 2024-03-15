@@ -1,0 +1,27 @@
+
+
+<section class="py-4 py-xl-5">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                <div class="card mb-5">
+                    <div class="card-body p-sm-5">
+                        <h2 class="text-center mb-4">Location</h2>
+                        <form method="post" action="{{ url_for('location') }}">
+                            <div class="mb-3"><input class="form-control" type="text" id="name-2" name="nom" placeholder="Votre nom"></div>
+                            <div class="mb-3"><input class="form-control" type="text" id="name-3" name="adresse" placeholder="Adresse"></div>
+                            <div class="mb-3"><input class="form-control" type="text" id="name-3" name="model" placeholder="Model du voiture"></div>
+                            <div class="mb-3"><input class="form-control" type="text" id="name-1" name="prix" placeholder="Prix"></div>
+                            <div class="mb-3"><input class="form-control" type="datetime-local" name="date" placeholder="date"></div>
+                            <div class="mb-3"></div>
+                            <div><button class="btn btn-primary d-block w-100" type="submit">Louer</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    <div class="card-group"></div>
+</div>

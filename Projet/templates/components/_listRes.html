@@ -1,0 +1,43 @@
+<section class="py-4 py-xl-5">
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Model</th>
+                        <th>Date</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
+                <tbody id="reserverTableBody">
+                    <!-- Les données seront injectées ici -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Récupération des données de réservation depuis Flask
+    const reservations = {{ reserver|tojson }};
+    
+    // Sélection de l'élément tbody pour les réservations
+    const reserverTableBody = document.getElementById('reserverTableBody');
+    
+    // Parcours des données de réservation et création des lignes du tableau
+    reservations.forEach(reservation => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${reservation[1]}</td>
+            <td>${reservation[4]}</td>
+            <td>${reservation[2]}</td>
+            <td>${reservation[3]}</td>
+            <form action="/delete_reservation" method="post">
+                <input type="hidden" name="id" value="${reservation[0]}">
+                <td><button type="submit" class="btn btn-danger">Supprimer</button></td>
+            </form>
+        `;
+        reserverTableBody.appendChild(row);
+    });
+</script>

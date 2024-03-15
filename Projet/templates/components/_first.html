@@ -1,0 +1,21 @@
+<body>
+    <form method="post" action="{{ url_for('redirect_page') }}">
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="background: rgb(72,72,72);border-color: rgb(72,72,72);">
+                <div class="row g-0">
+                    <div class="col-md-6" style="background: #484848;">
+                        <div class="text-white p-4 p-md-5">
+                            <h2 class="fw-bold text-white mb-3">Flask Car</h2>
+                            <p class="mb-4">Application de gestion de location de voiture</p>
+                            <div class="my-3"><button class="btn btn-primary btn-lg me-2"  type="submit" name="button_clicked" value="inscription">inscription<button class="btn btn-light btn-lg" type="submit" name="button_clicked" value="connexion">Connexion</a></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-first order-md-last" style="min-height: 250px;"><img class="w-100 h-100 fit-cover" src="{{url_for('static',filename='img/jeep.jpg')}}"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+    
+</body>

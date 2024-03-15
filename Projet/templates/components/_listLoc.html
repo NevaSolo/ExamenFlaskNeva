@@ -1,0 +1,47 @@
+<section class="py-4 py-xl-5">
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Model</th>
+                        <th>Prix</th>
+                        <th>Date</th>
+                        <th>Action</th> <!-- Ajout de la colonne Action -->
+                    </tr>
+                </thead>
+                <tbody id="locationTableBody">
+                    <!-- Les données seront injectées ici -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Récupération des données de localisation depuis Flask
+    const locations = {{ location|tojson }};
+    
+    // Sélection de l'élément tbody pour les localisations
+    const locationTableBody = document.getElementById('locationTableBody');
+    
+    // Parcours des données de localisation et création des lignes du tableau
+    locations.forEach(location => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${location[1]}</td>
+            <td>${location[2]}</td>
+            <td>${location[3]}</td>
+            <td>${location[4]}</td>
+            <td>${location[5]}</td>
+            <td> <!-- Début du formulaire de suppression -->
+                <form action="/delete_location/${location[0]}" method="post">
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </td> <!-- Fin du formulaire de suppression -->
+        `;
+        locationTableBody.appendChild(row);
+    });
+</script>
